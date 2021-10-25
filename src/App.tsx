@@ -1,9 +1,22 @@
-import React from 'react';
+import { FC, Suspense, lazy } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-const App: React.FC = () => {
+import Loader from './components/Loader';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+const Home = lazy(() => import("./pages/Home"));
+
+const App: FC = () => {
   return (
     <>
-      <p>app</p>
+      <Navbar />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route path="/" exact strict><Home /></Route>
+        </Switch>
+      </Suspense>
+      <Footer />
     </>
   );
 }

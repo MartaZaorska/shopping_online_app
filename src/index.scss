@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$xl: 'screen and (min-width: 1200px)';
+$lg: 'screen and (min-width: 992px)';
+$md: 'screen and (min-width: 768px)';
+$sm: 'screen and (min-width: 576px)';
+
+$basicFont: 'Mulish', sans-serif;
+$specialFont: 'Cinzel', 'Mulish', sans-serif;
+
+$black: #000;
+$dark: #555;
+$light: #efefef;
+$lightMenu: rgb(250,250,250);
+$white: #fff;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 15px 15px rgba(110, 110, 110, 0.4);
+  border: solid 5px transparent;
+  border-radius: 1.3em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px 15px transparent;
+  border: solid 5px transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+input,
+select,
+input::placeholder,
+button,
+a {
+  background: transparent;
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: auto;
+}
+
+input:active,
+input:focus,
+select:active,
+select:focus,
+button:active,
+button:focus,
+a:active,
+a:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+body {
+  font-family: $basicFont;
+  font-size: 16px;
+  font-display: fallback;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: $light;
+}
+
+.icon {
+  pointer-events: none;
+}
+
+.content {
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  @media #{$sm}{
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+
+//----------------------------NAVBAR-----------------------------
+
+
+.navbar--mobile {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+  display: flex;
+  gap: 0 5px;
+
+  @media #{$md}{
+    display: none;
+  }
+}
+
+.navbar__left {
+  z-index: 1;
+  background: $lightMenu;
+  align-self: flex-end;
+  width: calc(100% / 2 - 34px);
+  border-top-right-radius: 2.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: -2px -7px 10px -8px rgba(0,0,0,0.15);
+
+  a {
+    color: $dark;
+    font-size: 1.4em;
+    padding: 0.4em;
+    margin: 0.3em 5%;
+  }
+}
+
+.navbar__right {
+  z-index: 1;
+  background: $lightMenu;
+  align-self: flex-end;
+  width: calc(100% / 2 - 34px);
+  border-top-left-radius: 2.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 2px -7px 10px -8px rgba(0,0,0,0.15);
+
+  a {
+    color: $dark;
+    font-size: 1.4em;
+    padding: 0.4em;
+    margin: 0.3em 5%;
+  }
+}
+
+.navbar__center {
+  z-index: 10;
+  background: rgba(255, 193, 204, 0.6);
+  backdrop-filter: blur(5px);
+  color: $white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15);
+
+  a {
+    font-size: 1.5em;
+  }
+}
+
+.navbar__circle {
+  z-index: -1;
+  width: 78.5px;
+  height: 78.5px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  box-shadow: 0px 35px $lightMenu;
+}
+
+
+.navbar--desktop {
+  display: none;
+  @media #{$md}{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+
+  header {
+    font-family: $specialFont;
+    font-weight: 500;
+  }
+}
+
+.navbar__content {
+  display: flex;
+}
+
+.navbar__content a{
+  font-size: 0.9em;
+  margin: 0em 1em;
+  display: flex;
+  align-items: center;
+  padding: 0.3em 0.5em;
+  font-weight: 300;
+  border-radius: 10px;
+  transition: all 0.1s;
+
+  .icon {
+    margin-right: 0.3em;
+    font-size: 0.95em;
+  }
+
+  &:hover, &.active {
+    background: $lightMenu;
+    color: $black;
+  }
+}
+
+.navbar__content .navbar__cart {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+
+  span {
+    font-size: 0.75em;
+    font-weight: 600;
+    color: $white;
+    background: rgba(255, 193, 204, 1);
+    border-radius: 8px;
+    padding: 0.2em 0.4em;
+  }
+}
