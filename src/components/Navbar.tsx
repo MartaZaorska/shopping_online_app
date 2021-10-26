@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { BsUiChecksGrid, BsBoxSeam } from 'react-icons/bs';
 import { IoHomeOutline } from 'react-icons/io5';
-import { FiMessageCircle } from 'react-icons/fi'
+import { FiMessageCircle } from 'react-icons/fi';
 
 const Navbar: FC = () => {
   return (
