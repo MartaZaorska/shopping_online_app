@@ -14,7 +14,7 @@ $light: rgb(240, 240, 240);
 $lightMenu: rgb(247,247,247);
 $white: #fff;
 $grayPink: #cec2c2;
-$pink: rgb(255, 193, 204);
+$pink: rgb(250, 182, 194);
 $lightPink: #e8d9d9;
 $redPink: #AE5656;
 $sea: #ADE6F2;
@@ -118,6 +118,10 @@ body {
     padding-left: 2em;
     padding-right: 2em;
   }
+}
+
+.main {
+  min-height: 78.7vh;
 }
 
 
@@ -280,6 +284,14 @@ body {
   span {
     font-weight: 600;
   }
+
+  a:hover{
+    color: $pink;
+  }
+
+  @media #{$lg}{
+    font-size: 14px;
+  }
 }
 
 //------------------HEADER--------------------------
@@ -348,7 +360,7 @@ body {
   }
 
   @media #{$lg}{
-    padding: 3em 11em;
+    padding: 3em 11em 3em 8em;
     font-size: 1.1em;
   }
 
@@ -411,6 +423,223 @@ body {
 
     @media #{$md}{
       padding: 0.4em 1.5em;
+    }
+  }
+}
+
+//-------------------------DELIVERY------------------
+
+.delivery {
+  padding-bottom: 1em;
+
+  @media #{$md}{
+    width: 80%;
+    font-size: 14px;
+  }
+
+  @media #{$lg}{
+    width: 60%;
+  }
+
+  @media #{$xl}{
+    width: 50%;
+  }
+
+  h3 {
+    font-weight: 500;
+    margin: 0.5em 0em;
+    @media #{$lg}{
+      margin: 1.5em 0em 0.5em 0em;
+    }
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.payment {
+  display: flex;
+  align-items: center;
+  gap: 0em 1em;
+  margin: 1em 0em 2em;
+  .icon {
+    font-size: 2.2em;
+  }
+}
+
+//--------------------------FOOTER---------------------
+.footer .stripe {
+  display: none;
+  @media #{$md}{
+    display: grid;
+  }
+}
+
+//--------------------------CONTACT---------------------
+.contact {
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+
+  @media #{$md}{
+    width: 70%;
+  }
+
+  @media #{$lg}{
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  &__wrapper {
+    @media #{$lg}{
+      width: 40%;
+    }
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+  p {
+    margin: 0.7em 0em;
+    line-height: 1.6;
+  }
+
+  &__content {
+    margin: 1.5em 0em;
+    line-height: 1.8;
+  }
+}
+
+.form {
+  margin: 1.5em 0em;
+  display: flex;
+  flex-direction: column;
+
+  @media #{$lg}{
+    margin-left: 2em;
+  }
+
+  @media #{$xl}{
+    width: 35%;
+  }
+
+  input {
+    border-bottom: 1px solid $lightPink;
+    padding: 0.9em;
+    margin-bottom: 1em;
+  }
+}
+
+.form__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.input__message {
+  width: 100%;
+}
+
+.input__text {
+  width: 47%;
+}
+
+.input__email, .input__tel {
+  width: 100%;
+  @media #{$sm}{
+    width: 47%;
+  }
+}
+
+.form__button {
+  width: 100%;
+  padding: 0.8em 1em;
+  background: $dark;
+  color: $white;
+  margin: 0.8em 0em;
+  border-radius: 1.1em;
+  font-weight: 600;
+  transition: all 0.1s;
+
+  align-self: center;
+
+  &:hover {
+    color: $dark;
+    background: $lightPink;
+  }
+
+  @media #{$sm}{
+    width: 40%;
+  }
+
+  @media #{$md}{
+    width: 35%;
+    align-self: flex-end;
+  }
+}
+
+.address {
+  font-style: normal;
+  margin-bottom: 0.5em;
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    color: $grayPink;
+    font-size: 1.35em;
+    margin-right: 0.4em;
+    @media #{$lg}{
+      margin-right: 0.7em;
+    }
+  }
+}
+
+.social-media h4 {
+  font-weight: 600;
+  font-size: 0.9em; 
+  margin-bottom: 0.3em; 
+  margin-top: 1.5em;
+
+  @media #{$lg}{
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+  }
+}
+
+.social-media__content {
+  display: flex;
+  align-items: center;
+  a {
+    font-size: 1.2em;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: $lightPink;
+    margin-right: 0.3em;
+
+    @media #{$lg}{
+      margin-right: 0.6em;
+    }
+
+    &:hover {
+      background: $dark;
+      color: $lightPink;
+      transform: scale(1.1);
     }
   }
 }
