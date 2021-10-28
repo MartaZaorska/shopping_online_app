@@ -10,7 +10,7 @@ $specialFont: 'Cinzel', 'Mulish', sans-serif;
 
 $black: #000;
 $dark: #444;
-$light: rgb(240, 240, 240);
+$light: rgb(242, 242, 242);
 $lightMenu: rgb(247,247,247);
 $white: #fff;
 $grayPink: #cec2c2;
@@ -535,6 +535,10 @@ body {
     border-bottom: 1px solid $lightPink;
     padding: 0.9em;
     margin-bottom: 1em;
+  }
+
+  input::placeholder {
+    color: lighten($dark, 10);
   }
 }
 
