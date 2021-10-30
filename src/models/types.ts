@@ -7,13 +7,12 @@ export type TProduct = {
   id: number,
   brand: string,
   name: string,
-  price: string,
+  price: number,
   rating: number | null,
   image_link: string,
   description: string,
   category: string,
-  created_at: string,
-  updated_at: string,
+  created_at: number,
   product_colors: TColor[] | null
 };
 

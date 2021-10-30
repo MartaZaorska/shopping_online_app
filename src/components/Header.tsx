@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import DiscountCode from './DiscountCode';
 
-const Header: FC = () => {
+const Header: FC<{total: number}> = ({total}) => {
   return (
     <>
       <DiscountCode />
-      <Navbar />
+      <Navbar total={total} />
       <header className="header content">
         <Link to="/">Maquillage</Link>
       </header>
@@ -16,4 +16,4 @@ const Header: FC = () => {
   )
 }
 
-export default Header;
+export default memo(Header);

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { RiShoppingCartLine } from 'react-icons/ri';
@@ -6,7 +6,7 @@ import { BsUiChecksGrid, BsBoxSeam } from 'react-icons/bs';
 import { IoHomeOutline } from 'react-icons/io5';
 import { FiMessageCircle } from 'react-icons/fi';
 
-const Navbar: FC = () => {
+const Navbar: FC<{total: number}> = ({total}) => {
   return (
     <nav className="navbar">
       <div className="navbar--mobile">
@@ -31,7 +31,7 @@ const Navbar: FC = () => {
           <Link to="/contact">Contact</Link>
           <Link to="/cart" className="navbar__cart">
             <RiShoppingCartLine className="icon" />
-            <span>$20</span>
+            <span>${total}</span>
           </Link>
         </div>
       </div>
@@ -39,4 +39,4 @@ const Navbar: FC = () => {
   )
 }
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,0 +1,1 @@
+export const URLS: string[] = ['https://makeup-api.herokuapp.com/api/v1/products.json?brand=clinique', 'https://makeup-api.herokuapp.com/api/v1/products.json?brand=nyx', 'https://makeup-api.herokuapp.com/api/v1/products.json?brand=marcelle'];

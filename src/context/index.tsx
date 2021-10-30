@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import { IShop } from '../models/interfaces';
 import { TProduct, TFilters } from '../models/types';
@@ -24,11 +24,15 @@ const ShopContext = React.createContext<IShop>(defaultState);
 export const ShopProvider: React.FC<React.ReactNode> = ({children}) => {
   const [products, setProducts] = useState<TProduct[]>([]);
   const [cart, setCart] = useState<{product: TProduct, amount: number}[]>([]);
-  const [total, setTotal] = useState<number>(0);
   const [filters, setFilters] = useState<TFilters>({...defaultState.filters});
 
+  const total: number = useMemo(() => {
+    let t = 0;
+    cart.map(item => t += item.amount * item.product.price);
+    return t;
+  }, [cart]);
 
-  const addProducts = (products: TProduct[]): void => {};
+  const addProducts = (products: TProduct[]): void => setProducts(products);
 
   const addToCart = (product: TProduct): void => {};
 

@@ -10,8 +10,8 @@ $specialFont: 'Cinzel', 'Mulish', sans-serif;
 
 $black: #000;
 $dark: #444;
-$light: rgb(242, 242, 242);
-$lightMenu: rgb(247,247,247);
+$light: rgb(241, 241, 241);
+$lightMenu: rgb(249,249,249);
 $white: #fff;
 $grayPink: #cec2c2;
 $pink: rgb(250, 182, 194);
@@ -148,7 +148,7 @@ body {
   background: $lightMenu;
   align-self: flex-end;
   width: calc(100% / 2 - 34px);
-  border-top-right-radius: 2.3em;
+  border-top-right-radius: 2.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,7 +168,7 @@ body {
   background: $lightMenu;
   align-self: flex-end;
   width: calc(100% / 2 - 34px);
-  border-top-left-radius: 2.3em;
+  border-top-left-radius: 2.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,6 +209,7 @@ body {
   height: 78.5px;
   border-radius: 50%;
   position: absolute;
+  //background: red;
   left: 50%;
   transform: translate(-50%, -10px);
   box-shadow: 0px 35px $lightMenu;
@@ -645,5 +646,69 @@ body {
       color: $lightPink;
       transform: scale(1.1);
     }
+  }
+}
+
+//--------------------LOADER-------------------------
+.loader {
+  height: 65vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: darken($lightPink, 15);
+    animation: text 2s linear infinite;
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  animation: circle 0.7s linear infinite;
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 50%;
+  }
+}
+
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0);
+    box-shadow: 1px 3px 2px $red;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 3px 2px $lightPink;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 3px 2px $sea;
   }
 }
