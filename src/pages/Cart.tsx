@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
-const Cart: FC = () => {
+const Cart: FC<{total: number}> = ({total}) => {
   return (
-    <div>cart</div>
+    <div>cart ${total}</div>
   );
 }
 
-export default Cart;
+export default memo(Cart);

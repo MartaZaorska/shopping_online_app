@@ -18,7 +18,7 @@ export function updateData(data: any): TProduct {
     description: data.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis et urna sit amet tincidunt. Quisque ac erat sit amet erat efficitur ultricies. Nullam sodales efficitur nibh, non porta felis egestas vitae. Sed non feugiat lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur imperdiet libero eget semper maximus. Morbi scelerisque vestibulum eros, ut tincidunt nunc lobortis ut. Aenean aliquet est a condimentum vulputate. Proin porttitor ligula justo. Sed nunc neque, dictum rutrum massa eget, facilisis molestie est. Sed interdum sem at viverra rutrum.",
     category: data.product_type,
     created_at: new Date(data.created_at).getTime(),
-    product_colors: data.product_colors
+    colors: data.product_colors
   }
 }
 

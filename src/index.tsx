@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import { BrowserRouter } from 'react-router-dom';
-import  {ShopProvider } from './context';
+import { store } from './state/index';
 import App from './App';
 
 import './index.scss';
@@ -11,9 +13,9 @@ import './index.scss';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ShopProvider>
+      <Provider store={store}>
         <App />
-      </ShopProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

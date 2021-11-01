@@ -1,3 +1,9 @@
+export type TCart = ({
+  product: TProduct,
+  quantity: number,
+  color: TColor | null
+})[];
+
 export type TColor = {
   hex_value: string,
   colour_name: string | null
@@ -13,7 +19,7 @@ export type TProduct = {
   description: string,
   category: string,
   created_at: number,
-  product_colors: TColor[] | null
+  colors: TColor[] | null
 };
 
 export type TSort = 'recommended' | 'price high to low' | 'price low to high' | 'new in';
@@ -27,3 +33,9 @@ export type TFilters = {
   category: TCategory,
   brand: TBrand
 };
+
+export type TState = {
+  products: TProduct[],
+  cart: TCart,
+  filters: TFilters,
+}

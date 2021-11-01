@@ -1,7 +1,9 @@
-import { FC, Suspense, lazy, useEffect } from 'react';
+import { FC, Suspense, lazy, useEffect, useMemo } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { useShopContext } from './context';
+import { actionCreators, RootState } from './state';
 import { URLS } from './constants';
 import useFetchProducts from './hooks/useFetchProducts';
 
@@ -17,15 +19,24 @@ const Cart = lazy(() => import("./pages/Cart"));
 const Product = lazy(() => import("./pages/Product"));
 
 const App: FC = () => {
-  const { addProducts, total } = useShopContext();
+  const { cart } = useSelector((state: RootState) => state.shop);
+  const dispatch = useDispatch();
+
+  const { setProducts } = bindActionCreators(actionCreators, dispatch);
   const { loading, error, data } = useFetchProducts(URLS);
-  
+
+  const total: number = useMemo(() => {
+    let t = 0;
+    cart.forEach(item => t += item.product.price * item.quantity);
+    return t;
+  }, [cart]);
+
   useEffect(() => {
-    if(data.length > 0) addProducts(data);
-  }, [data, addProducts]);
+    if(data.length > 0) setProducts(data);
+  }, [data]);
 
   if(error) return <p>Error</p>
-  
+
   if(loading) return <Loader />
 
   return (
@@ -38,7 +49,7 @@ const App: FC = () => {
             <Route path="/shop"><Shop /></Route>
             <Route path="/delivery"><Delivery /></Route>
             <Route path="/contact"><Contact /></Route>
-            <Route path="/cart"><Cart /></Route>
+            <Route path="/cart"><Cart total={total} /></Route>
             <Route path="/product/:id"><Product /></Route>
           </Switch>
         </main>
