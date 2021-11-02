@@ -10,8 +10,8 @@ $specialFont: 'Cinzel', 'Mulish', sans-serif;
 
 $black: #000;
 $dark: #444;
-$light: rgb(241, 241, 241);
-$lightMenu: rgb(249,249,249);
+$lightMenu: rgb(242, 242, 242);
+$light: rgb(250,250,250);
 $white: #fff;
 $grayPink: #cec2c2;
 $pink: rgb(250, 182, 194);
@@ -185,7 +185,7 @@ body {
 
 .navbar__center {
   z-index: 10;
-  background: rgba(255, 193, 204, 0.6);
+  background: rgba(245, 183, 194, 0.6);
   backdrop-filter: blur(5px);
   color: $white;
   width: 60px;
@@ -252,7 +252,7 @@ body {
   }
 
   &:hover, &.active {
-    background: $lightMenu;
+    background: darken($white, 0.5);
     color: $black;
   }
 }
@@ -483,6 +483,7 @@ body {
 
 //--------------------------CONTACT---------------------
 .contact {
+  margin-top: 1em;
   padding-top: 0.5em;
   padding-bottom: 1em;
 
@@ -651,7 +652,7 @@ body {
 
 //--------------------LOADER-------------------------
 .loader {
-  height: 65vh;
+  height: 85vh;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -710,5 +711,393 @@ body {
   100% {
     transform: rotate(360deg);
     box-shadow: 1px 3px 2px $sea;
+  }
+}
+
+//-------------------------MODAL------------------------
+
+.modal {
+  @media #{$lg}{
+    display: none;
+  }
+}
+
+.modal__background {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  background: rgba(170, 170, 170, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.modal__content {
+  z-index: 205;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  padding: 2em;
+
+  max-height: 90vh;
+  overflow-y: scroll;
+
+  @media #{$sm}{
+    border-top-left-radius: 0em;
+    border-bottom-right-radius: 1.5em;
+    width: 450px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
+
+//---------------------FILTERS----------------------
+.filters__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.1em 0em;
+
+  @media #{$lg}{
+    gap: 1.3em 0em;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 1em;
+    color: $black;
+    width: 100%;
+  }
+}
+
+.select__group {
+  width: 100%; 
+  label {
+    font-weight: 500;
+  }
+
+  select {
+    text-transform: capitalize;
+    margin-left: 0.5em;
+    font-size: 1em;
+    border-bottom: 1px solid $lightPink;
+  }
+}
+
+.button__group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+
+  @media #{$lg}{
+    display: none;
+  }
+
+  button {
+    width: 47%;
+    padding: 0.8em 0em;
+    font-weight: 500;
+    font-size: 1em;
+    border-radius: 0.7em;
+    transition: all 0.1s;
+
+    &[type="reset"]{
+      background: darken($light, 5);
+    }
+    &[type="submit"]{
+      background: $dark;
+      color: $white;
+    }
+    &:hover {
+      box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.3);
+    }
+  } 
+}
+
+input[type='radio'] {
+  -webkit-appearance:none;
+}
+
+input[type="radio"]:checked + label {
+  background: #EAC8C8;
+  color: $white;
+  font-weight: 600;
+}
+
+.radio__group {
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em 0em;
+}
+
+.radio__item {
+  text-transform: capitalize;
+  label {
+    width: auto;
+    padding: 0.3em 0.5em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: all 0.1s;
+    font-size: 0.9em;
+
+    &:hover {
+      background: #EAC8C8;
+      color: $white;
+    }
+  }
+}
+
+//--------------------------SHOP---------------------------
+
+.shop {
+  margin-top: 1.1em;
+  position: relative;
+  @media #{$lg}{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.shop__filters {
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7em 0em;
+  margin-top: 0.2em;
+
+  @media #{$lg}{
+    width: 30%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em 0em;
+    padding-top: 0em;
+    margin-top: 1.3em;
+    font-size: 0.9em;
+  }
+
+  @media screen and (min-width: 992px) and (min-height: 440px){
+    position: sticky;
+    top: 2em;
+    left: 0;
+  }
+
+
+  @media #{$xl}{
+    width: 26%;
+  }
+}
+
+.shop__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 45px);
+  padding: 0.6em 0.8em;
+  border-radius: 0.8em;
+  background: lighten($light, 2);
+  transition: all 0.1s;
+
+  @media #{$md}{
+    width: 40%;
+  }
+
+  @media #{$lg}{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    font-size: 1.1em;
+  }
+
+  &:hover {
+    box-shadow: 0px 8px 12px -8px rgba(0,0,0,0.2);
+  }
+
+  input {
+    width: 100%;
+    padding: 0.1em;
+  }
+}
+
+.shop__button {
+  font-size: 1.3em;
+  width: 30px;
+  height: 30px;
+  @media #{$lg}{
+    display: none;
+  }
+}
+
+.filters__wrapper {
+  display: none;
+
+  @media #{$lg}{
+    display: block;
+  }
+}
+
+.shop__content {
+  padding: 1em 0.2em;
+
+  @media #{$sm}{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media #{$lg}{
+    margin-top: 0.4em;
+    width: 67%;
+  }
+
+  @media #{$xl}{
+    width: 70%;
+  }
+}
+
+//-----------------PRODUCT-ITEM-------------------
+.product-item {
+  position: relative;
+  text-align: center;
+  font-size: 0.9em;
+  background: $white;
+  border-radius: 1.3em;
+  padding: 1.5em 1.3em;
+  cursor: pointer;
+  margin-bottom: 1.5em;
+  overflow: hidden;
+
+  box-shadow: 0px 13px 15px -15px rgba(0,0,0,0.2);
+
+  @media #{$sm}{
+    width: 48%;
+  }
+
+  @media #{$md}{
+    width: 31%;
+  }
+
+  @media #{$lg}{
+    width: 48%;
+    transition: all 0.2s;
+    &:hover {
+      box-shadow: 0px 26px 40px -27px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  @media #{$xl}{
+    width: 31%;
+  }
+
+  &__image {
+    width: 48%;
+    height: auto;
+  }
+
+  &__brand {
+    font-size: 0.9em;
+    padding: 0.7em 0em;
+    font-weight: 300;
+    text-transform: capitalize; 
+  }
+
+  &__name {
+    text-align: center;
+    margin-bottom: 1.7em;
+  }
+
+  &__price {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 0.5em 0em;
+    font-weight: 700;
+    background: rgba($pink, 0.35);
+    color: $dark;
+    display: grid;
+    place-items: center;
+  }
+}
+
+//---------------------SCROLL BUTTON-------------------
+.scroll__button {
+  z-index: 10;
+  position: fixed;
+  bottom: 5.5em;
+  right: 1.5em;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba($dark, 0.7);
+  transform: translateX(100px); 
+  display: grid;
+  place-items: center;
+  box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+
+  @media #{$md}{
+    bottom: 2.5em;
+    background: rgba($dark, 0.85);
+  }
+
+  &:hover {
+    background: $dark;
+    box-shadow: 0px 5px 12px -4px rgba(0,0,0,0.3);
+  }
+
+  .icon {
+    font-size: 1.5em;
+    color: $light;
+  }
+}
+
+//--------------------NOVELTY---------------------
+
+.novelty {
+  padding: 3em 1em 2em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+    font-family: $specialFont;
+    margin-bottom: 0.5em;
+    color: $dark;
+  }
+
+  @media #{$lg}{
+    padding: 5em 2em;
+  }
+}
+
+.novelty__content {
+  padding: 1em;
+
+  @media #{$sm}{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+
+  @media #{$lg}{
+    margin-top: 1em;
+    width: 75%;
   }
 }

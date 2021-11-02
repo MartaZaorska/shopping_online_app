@@ -6,7 +6,6 @@ import { Action } from '../actions/actions';
 const initialState: TState = {
   products: [],
   cart: [],
-  total: 0,
   filters: {
     category: 'all categories',
     brand: 'all brands',
