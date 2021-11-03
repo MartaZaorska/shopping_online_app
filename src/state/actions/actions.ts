@@ -13,7 +13,7 @@ interface AddToCartAction {
 
 interface RemoveFromCartAction {
   type: ActionType.REMOVE_FROM_CART,
-  payload: { id: number, color: TColor }
+  payload: { id: number, color: TColor | null }
 };
 
 interface ClearCartAction {

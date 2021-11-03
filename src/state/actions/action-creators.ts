@@ -13,7 +13,7 @@ export const setProducts = (products: TProduct[]) => {
   }
 }
 
-export const addToCart = (product: TProduct, color: TColor) => {
+export const addToCart = (product: TProduct, color: TColor | null) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.ADD_TO_CART,
@@ -22,7 +22,7 @@ export const addToCart = (product: TProduct, color: TColor) => {
   }
 }
 
-export const removeFromCart = (id: number, color: TColor) => {
+export const removeFromCart = (id: number, color: TColor | null) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.REMOVE_FROM_CART,
