@@ -28,6 +28,14 @@ const App: FC = () => {
   const total: number = useMemo(() => {
     let t = 0;
     cart.forEach(item => t += item.product.price * item.quantity);
+    //Special Offer, Buy 3 products from clinique, get 1 free (the cheapest product is for free)
+    const cliniqueItems = cart.filter(item => item.product.brand === "clinique").sort((a,b) => a.product.price - b.product.price);
+    let quantity = Math.floor(cliniqueItems.length / 3);
+
+    for(let i = 0; quantity > 0; i++, quantity--){
+      t -= cliniqueItems[i].product.price;
+    }
+
     return t;
   }, [cart]);
 

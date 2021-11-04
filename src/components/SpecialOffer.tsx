@@ -1,10 +1,19 @@
 import { FC } from 'react';
-import {  } from 'redux';
+import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import { actionCreators } from '../state';
 
 const SpecialOffer: FC = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const { changeFilters } = bindActionCreators(actionCreators, dispatch);
+
   const clickHandler = (): void => {
-    //changed filters
-    //history push /shop
+    changeFilters({sortBy: "recommended", brand: "clinique", category: "all categories"});
+    history.push("/shop");
   }
 
   return (

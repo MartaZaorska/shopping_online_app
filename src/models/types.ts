@@ -1,8 +1,8 @@
-export type TCart = ({
+export type TCart = {
   product: TProduct,
   quantity: number,
   color: TColor | null
-})[];
+};
 
 export type TColor = {
   hex_value: string,
@@ -36,6 +36,6 @@ export type TFilters = {
 
 export type TState = {
   products: TProduct[],
-  cart: TCart,
+  cart: TCart[],
   filters: TFilters,
 }

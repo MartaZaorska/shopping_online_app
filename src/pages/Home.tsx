@@ -14,7 +14,7 @@ const Home: FC = () => {
       <section className="banner"></section>
       <DeliveryOffer />
       <section className="novelty content">
-      <h2>Discover the novelty</h2>
+        <h2>Discover the novelty</h2>
         <div className="novelty__content">
           {products
             .sort((a,b) => b.created_at - a.created_at)

@@ -1,9 +1,10 @@
 import { FC } from 'react';
+import { DISCOUNT, DISCOUNT_CODE } from '../constants';
 
 const DiscountCode: FC = () => {
   return (
     <section className="stripe">
-      <p>Discount code 10% valid now: <span>SHOP10</span></p>
+      <p>Discount code {DISCOUNT}% valid now: <span>{DISCOUNT_CODE}</span></p>
     </section>
   );
 }

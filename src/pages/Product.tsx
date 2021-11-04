@@ -51,7 +51,7 @@ const Product: FC = () => {
         )}
         <div className="product__controls">
           <p className="product__price">${price}</p>
-          <button onClick={() => addToCart(product, color)} className="product__button">Buy</button>
+          <button onClick={() => addToCart(product, color)} className="product__button">Buy now</button>
         </div>
       </div>
     </section>

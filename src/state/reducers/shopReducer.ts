@@ -13,7 +13,7 @@ const initialState: TState = {
   },
 };
 
-const getIndexInCart = (cart: TCart, id: number, color: TColor | null): number => {
+const getIndexInCart = (cart: TCart[], id: number, color: TColor | null): number => {
   return cart.findIndex(item => {
     if(id !== item.product.id) return false;
     return color && item.color ? color.hex_value === item.color.hex_value : true;
