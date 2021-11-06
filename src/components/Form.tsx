@@ -1,8 +1,13 @@
 import { FC } from 'react';
 
-const Form: FC = () => {
+const Form: FC = () => { 
+  const submitHandler = (e: React.SyntheticEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    e.currentTarget.reset();
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={submitHandler}>
       <div className="form__box">
         <input type="text" placeholder="First Name" className="input__text" />
         <input type="text" placeholder="Last Name" className="input__text" />

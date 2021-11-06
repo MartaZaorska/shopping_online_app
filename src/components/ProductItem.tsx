@@ -7,7 +7,7 @@ const ProductItem: FC<{product: TProduct}> = ({product}) => {
   const history = useHistory();
   const { id, name, image_link, price, brand } = product;
 
-  const clickHandler = (): void => history.push(`/product/${id}`); 
+  const clickHandler = (): void => history.push(`/product/${id}`);
 
   return (
     <div className="product-item" onClick={clickHandler}>

@@ -11,3 +11,5 @@ export const URLS: string[] = ['https://makeup-api.herokuapp.com/api/v1/products
 export const DISCOUNT: number = 10;
 
 export const DISCOUNT_CODE: string = "SHOP10";
+
+export const PER_PAGE: number = 30;

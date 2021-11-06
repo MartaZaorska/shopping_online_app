@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { BsSearch, BsSliders } from 'react-icons/bs';
 import { FaAngleUp } from 'react-icons/fa';
@@ -11,20 +11,28 @@ import Modal from '../components/Modal';
 import Filters from '../components/Filters';
 import DeliveryOffer from '../components/DeliveryOffer';
 import ProductItem from '../components/ProductItem';
+import { PER_PAGE } from '../constants';
 
 
 const Shop: FC = () => {
   const { products, filters } = useSelector((state: RootState) => state.shop);
+  const [page, setPage] = useState<number>(1);
   const [modal, setModal] = useState<boolean>(false);
   const [data, setData] = useState<TProduct[]>([]);
   const [search, setSearch] = useState<string>("");
 
-  useEffect(() => {
+  const scrollHandler = useCallback(() => {
     const scrollBtn: HTMLButtonElement = document.querySelector(".scroll__button")!;
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.transform = window.scrollY >= 240 ? 'translateX(0px)' : 'translateX(100px)';
-    });
-  }, []);
+    scrollBtn.style.transform = window.scrollY >= 240 ? 'translateX(0px)' : 'translateX(100px)';
+    if(window.scrollY + window.innerHeight >= document.body.getBoundingClientRect().height - 100){
+      setPage(page + 1);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, [scrollHandler]);
 
   useEffect(() => {
     const filteredData = filterData(products, filters, search);
@@ -53,7 +61,7 @@ const Shop: FC = () => {
           </div>
         </section>
         <section className="shop__content">
-          {data.map(item => (
+          {data.slice(0, PER_PAGE * page).map(item => (
             <ProductItem product={item} key={item.id} />
           ))}
         </section>

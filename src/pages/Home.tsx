@@ -9,6 +9,7 @@ import ProductItem from '../components/ProductItem';
 
 const Home: FC = () => {
   const { products } = useSelector((state: RootState) => state.shop);
+
   return (
     <>
       <section className="banner"></section>

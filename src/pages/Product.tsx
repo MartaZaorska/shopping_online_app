@@ -37,7 +37,7 @@ const Product: FC = () => {
       <div className="product__content">
         <h1 className="product__name" dangerouslySetInnerHTML={{__html: `${name}`}}></h1>
         <p className="product__brand">{brand}</p>
-        {rating && <Rating rating={rating} />}
+        <Rating rating={rating} />
         <p className="product__description" dangerouslySetInnerHTML={{__html: `${description}`}}></p>
         {colors && (
           <div className="colors">
