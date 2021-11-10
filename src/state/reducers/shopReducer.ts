@@ -1,7 +1,5 @@
-import { TColor, TCart, TState } from '../../models/types';
-
-import { ActionType } from '../actions/action-types';
-import { Action } from '../actions/actions';
+import { TColor, TCartItem, TState } from '../../models/types';
+import { Action, ActionType } from '../actions/actions';
 
 const initialState: TState = {
   products: [],
@@ -13,7 +11,7 @@ const initialState: TState = {
   },
 };
 
-const getIndexInCart = (cart: TCart[], id: number, color: TColor | null): number => {
+const getIndexInCart = (cart: TCartItem[], id: number, color: TColor | null): number => {
   return cart.findIndex(item => {
     if(id !== item.product.id) return false;
     return color && item.color ? color.hex_value === item.color.hex_value : true;
@@ -57,7 +55,7 @@ const reducer = (state: TState = initialState, action: Action): TState => {
     case ActionType.RESET_FILTERS:
       return {
         ...state,
-        filters: {brand: 'all brands', category: 'all categories', sortBy: 'recommended'}
+        filters: { brand: 'all brands', category: 'all categories', sortBy: 'recommended' }
       };
     default:
       return state;

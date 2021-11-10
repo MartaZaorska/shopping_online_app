@@ -1,4 +1,4 @@
-export type TCart = {
+export type TCartItem = {
   product: TProduct,
   quantity: number,
   color: TColor | null
@@ -36,6 +36,6 @@ export type TFilters = {
 
 export type TState = {
   products: TProduct[],
-  cart: TCart[],
+  cart: TCartItem[],
   filters: TFilters,
 }

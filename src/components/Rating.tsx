@@ -9,7 +9,7 @@ const Rating: FC<{rating: number | null}> = ({rating}) => {
       {stars.map((item, index) => (
         <MdStarRate className={item ? "icon active" : "icon"} key={`star_${index}`} />
       ))}
-      <span>({rating ? Math.ceil(Math.random() * 15) : '0'})</span>
+      <span>({rating ? Math.floor(rating) : '0'})</span>
     </div>
   )
 }

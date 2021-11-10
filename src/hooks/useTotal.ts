@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
-import { TCart } from '../models/types';
+import { TCartItem } from '../models/types';
 
-const useTotal = (cart: TCart[]): number => {
+const useTotal = (cart: TCartItem[]): number => {
   const total: number = useMemo(() => {
     let t = 0;
     cart.forEach(item => t += item.product.price * item.quantity);
+
     //Special Offer, Buy 3 products from clinique, get 1 free (the cheapest product is for free)
-    const cliniqueItems: number[] = [];
+    let cliniqueItems: number[] = [];
 
     cart.forEach(item => {
       if(item.product.brand === "clinique"){
@@ -14,13 +15,14 @@ const useTotal = (cart: TCart[]): number => {
       }
     });
 
-    let quantity = Math.floor(cliniqueItems.length / 3);
+    cliniqueItems = cliniqueItems.sort((a, b) => a - b);
+    let q = Math.floor(cliniqueItems.length / 3);
 
-    for(let i = 0; quantity > 0; i++, quantity--){
+    for(let i = 0; q > 0; i++, q--){
       t -= cliniqueItems[i];
     }
 
-    return t;
+    return +t.toFixed(2);
   }, [cart]);
 
   return total;

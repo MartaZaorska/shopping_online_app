@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from "redux";
 import thunk from 'redux-thunk';
+
 import { reducers } from "./reducers";
 import { TState } from '../models/types';
 
@@ -16,7 +17,6 @@ function loadFromSessionStorage(){
     const sessionData = sessionStorage.getItem("shopping-online-app");
     return sessionData === null ? undefined : {shop: JSON.parse(sessionData)};
   } catch(err) {
-    console.log(err);
     return undefined;
   }
 }

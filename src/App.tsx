@@ -1,11 +1,8 @@
-import { FC, Suspense, lazy, useEffect, useState } from 'react';
+import { FC, Suspense, lazy, useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector } from 'react-redux';
 
-import { actionCreators, RootState } from './state';
-import { URLS } from './constants';
-import useFetchProducts from './hooks/useFetchProducts';
+import { selectShopState } from './state';
 import useTotal from './hooks/useTotal';
 
 import Loader from './components/Loader';
@@ -20,24 +17,12 @@ const Cart = lazy(() => import("./pages/Cart"));
 const Product = lazy(() => import("./pages/Product"));
 
 const App: FC = () => {
-  const { cart } = useSelector((state: RootState) => state.shop);
-  const dispatch = useDispatch();
+  const { cart } = useSelector(selectShopState);
   const { pathname = "" } = useLocation<{pathname: string}>();
-
-  const { setProducts } = bindActionCreators(actionCreators, dispatch);
-  const { loading, error, data } = useFetchProducts(URLS);
 
   const total = useTotal(cart);
 
   useEffect(() =>  window.scroll({top: 0, behavior: "smooth"}), [pathname]);
-
-  useEffect(() => {
-    if(data.length > 0) setProducts(data);
-  }, [data]);
-
-  if(error) return <p>Error</p>
-
-  if(loading) return <Loader />
 
   return (
     <>

@@ -313,7 +313,7 @@ body {
 
 //------------------BANNER----------------------------
 .banner {
-  height: calc(100vh - 100px);
+  height: 540px;
   background-image: url("./images/banner3.jpeg");
   background-position: center;
   background-repeat: no-repeat;
@@ -322,6 +322,7 @@ body {
 
   @media #{$sm}{
     background-image: url("./images/banner2.jpeg");
+    height: calc(100vh - 100px);
   }
 
   @media #{$lg}{
@@ -1255,6 +1256,28 @@ input[type="radio"]:checked + label {
   }
 }
 
+.product__message {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  font-size: 0.9em;
+  border-radius: 1em;
+  padding: 0.5em 0.7em;
+  background: rgba($dark, 0.95);
+  color: $light;
+  font-weight: 800;
+  transition: all 0.2s;
+  transform: translateX(120%);
+  box-shadow: 0px 13px 17px -15px rgba(0,0,0,0.3);
+
+  @media #{$md}{
+    top: 7em;
+    font-size: 0.8em;
+    background: $lightMenu;
+    color: $dark;
+  }
+}
+
 //-----------------------RATING------------------------
 .rating {
   width: 100%;
@@ -1417,7 +1440,7 @@ input[type="radio"]:checked + label {
   }
 
   &__price {
-    margin-top: 0.2em;
+    margin-top: 0.35em;
   }
 }
 

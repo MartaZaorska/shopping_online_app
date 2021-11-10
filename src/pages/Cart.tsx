@@ -16,12 +16,16 @@ const Cart: FC<{total: number}> = ({total}) => {
   if(cart.length === 0) return (
     <div className="empty-cart content">
       <h4 className="empty-cart__subtitle">Your bag is empty</h4>
-      <h2>Recommended products</h2>
-      <div className="empty-cart__content">
-        {products.slice(0,3).map(item => (
-          <ProductItem key={item.id} product={item} />
-        ))}
-      </div>
+      {products.length > 0 && (
+        <>
+          <h2>Recommended products</h2>
+          <div className="empty-cart__content">
+            {products.slice(0,3).map(item => (
+              <ProductItem key={item.id} product={item} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )  
 

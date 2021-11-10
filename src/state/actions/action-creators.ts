@@ -1,8 +1,7 @@
 import { Dispatch } from "redux";
 
 import { TColor, TFilters, TProduct } from "../../models/types";
-import { ActionType } from '../actions/action-types';
-import { Action } from '../actions/actions';
+import { Action, ActionType } from '../actions/actions';
 
 export const setProducts = (products: TProduct[]) => {
   return (dispatch: Dispatch<Action>) => {

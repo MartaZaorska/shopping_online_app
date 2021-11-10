@@ -1,5 +1,13 @@
 import { TProduct, TColor, TFilters } from '../../models/types';
-import { ActionType } from './action-types';
+
+export enum ActionType {
+  SET_PRODUCTS = "GET_PRODUCTS",
+  ADD_TO_CART = "ADD_TO_CART",
+  REMOVE_FROM_CART = "REMOVE_FROM_CART",
+  CLEAR_CART = "CLEAR_CART",
+  CHANGE_FILTERS = "CHANGE_FILTERS",
+  RESET_FILTERS = "RESET_FILTERS"
+};
 
 interface SetProductsAction {
   type: ActionType.SET_PRODUCTS,

@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+
 import shopReducer from './shopReducer';
 
 export const reducers = combineReducers({
@@ -6,3 +7,5 @@ export const reducers = combineReducers({
 });
 
 export type RootState = ReturnType<typeof reducers>;
+
+export const selectShopState = (state: RootState) => state.shop;
