@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Mulish:wght@300;400;500;600;700;800&display=swap');
 
 $xl: 'screen and (min-width: 1200px)';
 $lg: 'screen and (min-width: 992px)';
@@ -666,7 +666,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: darken($lightPink, 15);
-    animation: text 2s linear infinite;
+    animation: textLoader 2s linear infinite;
   }
 }
 
@@ -675,7 +675,7 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  animation: circle 0.7s linear infinite;
+  animation: circleLoader 0.7s linear infinite;
 
   &::before {
     position: absolute;
@@ -684,12 +684,12 @@ body {
     top: 0;
     height: 100%;
     width: 100%;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     border-radius: 50%;
   }
 }
 
-@keyframes text {
+@keyframes textLoader {
   0% {
     opacity: 0;
   }
@@ -701,20 +701,20 @@ body {
   }
 }
 
-@keyframes circle {
+@keyframes circleLoader {
   0% {
     transform: rotate(0);
-    box-shadow: 1px 3px 2px $red;
+    box-shadow: 1px 3px 2px #CE5050;;
   }
 
   50% {
     transform: rotate(180deg);
-    box-shadow: 1px 3px 2px $lightPink;
+    box-shadow: 1px 3px 2px #e8d9d9;
   }
 
   100% {
     transform: rotate(360deg);
-    box-shadow: 1px 3px 2px $sea;
+    box-shadow: 1px 3px 2px #ADE6F2;
   }
 }
 
@@ -975,6 +975,8 @@ input[type="radio"]:checked + label {
 
 //-----------------PRODUCT-ITEM-------------------
 .product-item {
+  display: flex;
+  flex-direction: column;
   position: relative;
   text-align: center;
   font-size: 0.9em;
@@ -1007,11 +1009,6 @@ input[type="radio"]:checked + label {
     width: 31%;
   }
 
-  &__image {
-    width: 48%;
-    height: auto;
-  }
-
   &__brand {
     font-size: 0.9em;
     padding: 0.7em 0em;
@@ -1037,6 +1034,21 @@ input[type="radio"]:checked + label {
     place-items: center;
   }
 }
+
+.product-item__image {
+  width: 48%;
+  align-self: center;
+  height: auto;
+  min-height: 130px;
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 //---------------------SCROLL BUTTON-------------------
 .scroll__button {

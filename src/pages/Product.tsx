@@ -4,17 +4,16 @@ import { bindActionCreators } from 'redux';
 import { useParams, Link } from 'react-router-dom';
 import { FaAngleLeft } from 'react-icons/fa';
 
-import { RootState, actionCreators } from '../state';
+import { selectShopState, actionCreators } from '../state';
 import { TColor, TProduct } from '../models/types';
 import Loader from '../components/Loader';
 import Rating from '../components/Rating';
 
 const Product: FC = () => {
-  const [color, setColor] = useState<TColor | null>(null);
+  const { products } = useSelector(selectShopState);
   const { id } = useParams<{id: string}>();
-
-  const { products } = useSelector((state: RootState) => state.shop);
-
+  const [color, setColor] = useState<TColor | null>(null);
+  
   const dispatch = useDispatch();
   const { addToCart } = bindActionCreators(actionCreators, dispatch);
 
@@ -27,8 +26,9 @@ const Product: FC = () => {
   const changeHandler = (color: TColor): void => setColor(color);
   
   const clickHandler = (product: TProduct): void => {
-    const msgElement: HTMLParagraphElement = document.querySelector(".product__message")!;
     addToCart(product, color);
+    
+    const msgElement: HTMLParagraphElement = document.querySelector(".product__message")!;
     msgElement.style.transform = "translateX(0%)";
     setTimeout(() => msgElement.style.transform = "translateX(120%)", 3000);
   }
@@ -41,7 +41,7 @@ const Product: FC = () => {
     <>
       <p className="product__message">Product added to cart</p>
       <section className="product content">
-        <div className="product__image"><img width="250" height="310" src={image_link} alt={name} /></div>
+        <div className="product__image"><img width="270" height="315" src={image_link} alt={name} /></div>
         <div className="product__link"><Link to="/shop"><FaAngleLeft className="icon" /> <span>Back to Shop</span></Link></div>
         <div className="product__content">
           <h1 className="product__name" dangerouslySetInnerHTML={{__html: `${name}`}}></h1>
@@ -60,7 +60,7 @@ const Product: FC = () => {
           )}
           <div className="product__controls">
             <p className="product__price">${price}</p>
-            <button onClick={() => clickHandler(product)} className="product__button">Buy now</button>
+            <button onClick={() => clickHandler(product)} className="product__button" aria-label="Buy">Buy now</button>
           </div>
         </div>
       </section>

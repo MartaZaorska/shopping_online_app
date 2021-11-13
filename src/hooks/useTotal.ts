@@ -7,19 +7,19 @@ const useTotal = (cart: TCartItem[]): number => {
     cart.forEach(item => t += item.product.price * item.quantity);
 
     //Special Offer, Buy 3 products from clinique, get 1 free (the cheapest product is for free)
-    let cliniqueItems: number[] = [];
+    let cliniquePrices: number[] = [];
 
     cart.forEach(item => {
       if(item.product.brand === "clinique"){
-        for(let i = 0; i < item.quantity; i++) cliniqueItems.push(item.product.price);
+        for(let i = 0; i < item.quantity; i++) cliniquePrices.push(item.product.price);
       }
     });
 
-    cliniqueItems = cliniqueItems.sort((a, b) => a - b);
-    let q = Math.floor(cliniqueItems.length / 3);
+    cliniquePrices = cliniquePrices.sort((a, b) => a - b);
+    let q = Math.floor(cliniquePrices.length / 3);
 
     for(let i = 0; q > 0; i++, q--){
-      t -= cliniqueItems[i];
+      t -= cliniquePrices[i];
     }
 
     return +t.toFixed(2);

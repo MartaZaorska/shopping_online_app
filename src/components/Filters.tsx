@@ -1,20 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import { RootState, actionCreators } from '../state';
-
+import { selectShopState, actionCreators } from '../state';
 import { BRANDS, CATEGORIES, SORT } from '../constants';
 
-const Filters: FC<{closeModal?: Function}> = ({closeModal = () => {}}) => {
-  const { filters } = useSelector((state: RootState) => state.shop);
+const Filters: React.FC<{closeModal?: Function}> = ({closeModal}) => {
+  const { filters } = useSelector(selectShopState);
   const dispatch = useDispatch();
 
   const { changeFilters, resetFilters } = bindActionCreators(actionCreators, dispatch);
 
   const submitHandler = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    closeModal();
+    if(closeModal) closeModal();
   }
 
   const changeHandler = (e: React.FormEvent<HTMLSelectElement | HTMLInputElement>): void => {
@@ -54,8 +53,8 @@ const Filters: FC<{closeModal?: Function}> = ({closeModal = () => {}}) => {
         ))}
       </div>
       <div className="button__group">
-        <button type="reset">Reset</button>
-        <button type="submit">Apply</button>
+        <button type="reset" aria-label="Reset filters">Reset</button>
+        <button type="submit" aria-label="Submit filters">Apply</button>
       </div>
     </form>
   )

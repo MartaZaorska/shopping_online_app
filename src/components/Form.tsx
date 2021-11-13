@@ -17,7 +17,7 @@ const Form: FC = () => {
         <input type="tel" placeholder="Telephone" className="input__tel" />
       </div>
       <input type="text" placeholder="Message" className="input__message" />
-      <button type="submit" className="form__button">Send Message</button>
+      <button type="submit" aria-label="Send message" className="form__button">Send Message</button>
     </form>
   );
 }

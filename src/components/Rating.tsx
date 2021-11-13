@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { MdStarRate } from 'react-icons/md';
 
 const Rating: FC<{rating: number | null}> = ({rating}) => {
@@ -6,12 +6,12 @@ const Rating: FC<{rating: number | null}> = ({rating}) => {
   
   return (
     <div className="rating">
-      {stars.map((item, index) => (
-        <MdStarRate className={item ? "icon active" : "icon"} key={`star_${index}`} />
+      {stars.map((star, index) => (
+        <MdStarRate className={star ? "icon active" : "icon"} key={`star_${index}`} />
       ))}
       <span>({rating ? Math.floor(rating) : '0'})</span>
     </div>
   )
 }
 
-export default Rating;
+export default memo(Rating);

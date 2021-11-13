@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { TProduct } from "../models/types";
 import { updateProduct } from "../utils";
 
@@ -17,17 +18,18 @@ function useFetchProducts(urlList: string[]): Props {
     if(urlList.length > 0){
       const promises = urlList.map(url => fetch(url).then(res => res.json()));
       setLoading(true);
+      
       Promise.all(promises).then((resData: any[]) => {
         const updatedData: TProduct[] = [];
         resData.forEach(data => data.forEach((item: any) => updatedData.push(updateProduct(item))));
         setData(updatedData);
         setError(false);
         setLoading(false);
-      }).catch((error) => {
-        console.log(error);
+      }).catch(() => {
         setError(true);
         setLoading(false);
       });
+      
     }
   }, [urlList]);
 

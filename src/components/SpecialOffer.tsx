@@ -12,7 +12,7 @@ const SpecialOffer: FC = () => {
   const { changeFilters } = bindActionCreators(actionCreators, dispatch);
 
   const clickHandler = (): void => {
-    changeFilters({sortBy: "recommended", brand: "clinique", category: "all categories"});
+    changeFilters({ sortBy: "recommended", brand: "clinique", category: "all categories" });
     history.push("/shop");
   }
 
@@ -20,7 +20,7 @@ const SpecialOffer: FC = () => {
     <section className="special-offer">
       <p>Special Offer</p>
       <h2>Buy 3 products from <span className="font">Clinique</span><br />Get 1 <span className="bold">FREE</span></h2>
-      <button onClick={clickHandler}>Shop now</button>
+      <button onClick={clickHandler} aria-label="Go to shop">Shop now</button>
     </section>
   )
 }

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import Filters from './Filters';
 
@@ -13,4 +13,4 @@ const Modal: FC<{closeModal: Function}> = ({closeModal}) => {
   )
 }
 
-export default Modal;
+export default memo(Modal);

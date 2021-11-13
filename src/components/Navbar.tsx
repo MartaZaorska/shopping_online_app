@@ -11,25 +11,25 @@ const Navbar: FC<{total: number}> = ({total}) => {
     <nav className="navbar">
       <div className="navbar--mobile">
         <div className="navbar__left">
-          <Link to="/"><IoHomeOutline className="icon" /></Link>
-          <Link to="/shop"><BsUiChecksGrid className="icon" /></Link>
+          <Link to="/" aria-label="Home"><IoHomeOutline className="icon" /></Link>
+          <Link to="/shop" aria-label="Shop"><BsUiChecksGrid className="icon" /></Link>
         </div>
         <div className="navbar__center">
-          <Link to="/cart"><RiShoppingCartLine className="icon" /></Link>
+          <Link to="/cart" aria-label="Cart"><RiShoppingCartLine className="icon" /></Link>
         </div>
         <div className="navbar__right">
-          <Link to="/delivery"><BsBoxSeam className="icon" /></Link>
-          <Link to="/contact"><FiMessageCircle className="icon" /></Link>
+          <Link to="/delivery" aria-label="Delivery"><BsBoxSeam className="icon" /></Link>
+          <Link to="/contact" aria-label="Contact"><FiMessageCircle className="icon" /></Link>
         </div>
         <div className="navbar__circle"></div>
       </div>
       <div className="navbar--desktop content">
-        <header><Link to="/">Maquillage</Link></header>
+        <header><Link to="/" aria-label="Home">Maquillage</Link></header>
         <div className="navbar__content">
-          <Link to="/shop">Shop</Link>
-          <Link to="/delivery">Delivery</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/cart" className="navbar__cart">
+          <Link to="/shop" aria-label="Shop">Shop</Link>
+          <Link to="/delivery" aria-label="Delivery">Delivery</Link>
+          <Link to="/contact" aria-label="Contact">Contact</Link>
+          <Link to="/cart" className="navbar__cart" aria-label="Cart">
             <RiShoppingCartLine className="icon" />
             <span>${total}</span>
           </Link>

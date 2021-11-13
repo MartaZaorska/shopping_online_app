@@ -7,7 +7,7 @@ import Newsletter from '../components/Newsletter';
 const Home: FC = () => {
   return (
     <>
-      <section className="banner"></section>
+      <section className="banner" />
       <DeliveryOffer />
       <SpecialOffer />
       <Newsletter />

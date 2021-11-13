@@ -1,36 +1,45 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FaMinus, FaPlus } from 'react-icons/fa';
 
-import { RootState, actionCreators } from '../state';
+import { selectShopState, actionCreators } from '../state';
 import Summary from '../components/Summary';
-import ProductItem from '../components/ProductItem';
+import EmptyCart from '../components/EmptyCart';
 import CartItem from '../components/CartItem';
+import { TProduct, TColor } from '../models/types';
 
 const Cart: FC<{total: number}> = ({total}) => {
+  const { cart, products } = useSelector(selectShopState);
+
   const dispatch = useDispatch();
-  const { cart, products } = useSelector((state: RootState) => state.shop);
   const { addToCart, removeFromCart, clearCart } = bindActionCreators(actionCreators, dispatch);
 
-  if(cart.length === 0) return (
-    <div className="empty-cart content">
-      <h4 className="empty-cart__subtitle">Your bag is empty</h4>
-      {products.length > 0 && (
-        <>
-          <h2>Recommended products</h2>
-          <div className="empty-cart__content">
-            {products.slice(0,3).map(item => (
-              <ProductItem key={item.id} product={item} />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  )  
+  const addHandler = useCallback((product: TProduct, color: TColor | null): void => {
+    addToCart(product, color);
+  }, [addToCart]);
+
+  const removeHandler = useCallback((id: number, color: TColor | null): void => {
+    removeFromCart(id, color);
+  }, [removeFromCart]);
+
+  if(cart.length === 0) return <EmptyCart products={products?.slice(0,3) || []} />
 
   return (
     <section className="cart content">
+      <div className="cart__products">
+        {cart.map(item => (
+          <CartItem data={item} addHandler={addHandler} removeHandler={removeHandler} key={`${item.product.id}-${item.color?.hex_value}`}/>
+        ))}
+      </div>
+      <Summary clearCart={clearCart} total={total} />
+    </section>
+  );
+}
+
+export default memo(Cart);
+
+/*
+  <section className="cart content">
       <div className="cart__products">
         {cart.map(item => (
           <div className="cart-item" key={`${item.product.id}-${item.color?.hex_value}`}>
@@ -45,7 +54,4 @@ const Cart: FC<{total: number}> = ({total}) => {
       </div>
       <Summary clearCart={clearCart} total={total} />
     </section>
-  );
-}
-
-export default memo(Cart);
+*/

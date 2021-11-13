@@ -1,7 +1,7 @@
 import { FC } from 'react';
-
 import { IoMail, IoPhonePortrait, IoLocationSharp } from 'react-icons/io5';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+
 import Form from '../components/Form';
 import Newsletter from '../components/Newsletter';
 
@@ -24,9 +24,9 @@ const Contact: FC = () => {
             <section className="social-media">
               <h4>Follow Us On:</h4>
               <div className="social-media__content">
-                <a href="https://facebook.com/"  rel="noreferrer" target="_blank"><FaFacebookF className="icon" /></a>
-                <a href="https://www.instagram.com/"  rel="noreferrer" target="_blank"><FaInstagram className="icon" /></a>
-                <a href="https://twitter.com/"  rel="noreferrer" target="_blank"><FaTwitter className="icon" /></a>
+                <a href="https://facebook.com/"  rel="noreferrer" target="_blank" aria-label="Link to Facebook"><FaFacebookF className="icon" /></a>
+                <a href="https://www.instagram.com/"  rel="noreferrer" target="_blank" aria-label="Link to Instagram"><FaInstagram className="icon" /></a>
+                <a href="https://twitter.com/"  rel="noreferrer" target="_blank" aria-label="Link to Twitter"><FaTwitter className="icon" /></a>
               </div>
             </section>
           </section>

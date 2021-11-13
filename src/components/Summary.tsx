@@ -9,7 +9,7 @@ const Summary: FC<{total: number, clearCart: Function}> = ({total, clearCart}) =
   const [message, setMessage] = useState<string>("");
   
   const subtotal: number = useMemo(() => discount ? +(total * (1 - DISCOUNT / 100)).toFixed(2) : total, [discount, total]);
-
+  
   const delivery: number = useMemo(() => subtotal >= 100 ? 0 : 9.99, [subtotal]);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => setCode(e.currentTarget.value);
@@ -28,16 +28,16 @@ const Summary: FC<{total: number, clearCart: Function}> = ({total, clearCart}) =
 
   return (
     <div className="summary">
-      <button onClick={() => clearCart()} className="summary__button">Clear your shopping bag</button>
+      <button onClick={() => clearCart()} aria-label="Clear cart" className="summary__button">Clear your shopping bag</button>
       <form className="summary__form" onSubmit={submitHandler}>
         <input type="text" disabled={discount} placeholder="Discount Code" value={code} onChange={changeHandler} />
-        <button type="submit" disabled={discount}><BsCheckLg className="icon" /></button>
+        <button type="submit" aria-label="Add discount code" disabled={discount}><BsCheckLg className="icon" /></button>
       </form>
       {message && <p className="summary__message">{message}</p>}
       <p className="summary__text"><span>Subtotal</span><span className="bold">${subtotal}</span></p>
       <p className="summary__text"><span>Delivery</span><span className="bold">${delivery}</span></p>
       <p className="summary__text total"><span>Total</span><span className="bold">${(subtotal + delivery).toFixed(2)}</span></p>
-      <button className="checkout__button">Proceed to checkout</button>
+      <button className="checkout__button" aria-label="Go to checkout">Proceed to checkout</button>
     </div>
   );
 }

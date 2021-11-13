@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { FaCcMastercard, FaPaypal, FaGooglePay } from 'react-icons/fa';
 
 const Delivery: FC = () => {
