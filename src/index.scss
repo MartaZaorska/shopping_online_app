@@ -16,18 +16,12 @@ $white: #fff;
 $grayPink: #cec2c2;
 $pink: rgb(250, 182, 194);
 $lightPink: #e8d9d9;
-$redPink: #AE5656;
+$grayPink: #cec2c2;
 $grayPink2: #ECE1E1;
-$sea: #ADE6F2;
-$red: #CE5050;
 
-$pinkRedGradient: linear-gradient(135deg, $lightPink, $redPink);
+$pinkRedGradient: linear-gradient(135deg, #e8d9d9, #AE5656);
 $boxShadow: 0px 13px 15px -15px rgba(0,0,0,0.2);
 $boxHoverShadow: 0px 26px 40px -27px rgba(0, 0, 0, 0.35);
-
-.test {
-  height: 50vh;
-}
 
 * {
   margin: 0;
@@ -93,6 +87,9 @@ a:focus {
   -webkit-tap-highlight-color: transparent;
 }
 
+input[type='radio'] {
+  -webkit-appearance: none;
+}
 
 body {
   font-family: $basicFont;
@@ -102,7 +99,6 @@ body {
   overflow-x: hidden;
   position: relative;
   background: $light;
-
   padding-bottom: 80px;
 
   @media #{$md}{
@@ -146,17 +142,14 @@ body {
   }
 }
 
-.navbar__left {
+.navbar__side {
   z-index: 1;
   background: $lightMenu;
   align-self: flex-end;
   width: calc(100% / 2 - 34px);
-  border-top-right-radius: 2.5em;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  box-shadow: -2px -7px 10px -8px rgba(0,0,0,0.15);
 
   a {
     color: $dark;
@@ -164,25 +157,15 @@ body {
     padding: 0.4em;
     margin: 0.3em 5%;
   }
-}
 
-.navbar__right {
-  z-index: 1;
-  background: $lightMenu;
-  align-self: flex-end;
-  width: calc(100% / 2 - 34px);
-  border-top-left-radius: 2.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &--left {
+    border-top-right-radius: 2.5em;
+    box-shadow: -2px -7px 10px -8px rgba(0,0,0,0.15);
+  }
 
-  box-shadow: 2px -7px 10px -8px rgba(0,0,0,0.15);
-
-  a {
-    color: $dark;
-    font-size: 1.4em;
-    padding: 0.4em;
-    margin: 0.3em 5%;
+  &--right {
+    border-top-left-radius: 2.5em;
+    box-shadow: 2px -7px 10px -8px rgba(0,0,0,0.15);
   }
 }
 
@@ -190,6 +173,7 @@ body {
   z-index: 10;
   background: rgba(245, 183, 194, 0.6);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   color: $white;
   width: 60px;
   height: 60px;
@@ -212,7 +196,6 @@ body {
   height: 78.5px;
   border-radius: 50%;
   position: absolute;
-  //background: red;
   left: 50%;
   transform: translate(-50%, -10px);
   box-shadow: 0px 35px $lightMenu;
@@ -667,6 +650,7 @@ body {
     text-transform: uppercase;
     color: darken($lightPink, 15);
     animation: textLoader 2s linear infinite;
+    -webkit-animation: textLoader 2s linear infinite;
   }
 }
 
@@ -676,6 +660,7 @@ body {
   height: 120px;
   border-radius: 50%;
   animation: circleLoader 0.7s linear infinite;
+  -webkit-animation: circleLoader 0.7s linear infinite;
 
   &::before {
     position: absolute;
@@ -704,7 +689,7 @@ body {
 @keyframes circleLoader {
   0% {
     transform: rotate(0);
-    box-shadow: 1px 3px 2px #CE5050;;
+    box-shadow: 1px 3px 2px #CE5050;
   }
 
   50% {
@@ -805,36 +790,28 @@ body {
   @media #{$lg}{
     display: none;
   }
-
-  button {
-    width: 47%;
-    padding: 0.8em 0em;
-    font-weight: 500;
-    font-size: 1em;
-    border-radius: 0.7em;
-    transition: all 0.1s;
-
-    &[type="reset"]{
-      background: darken($light, 5);
-    }
-    &[type="submit"]{
-      background: $dark;
-      color: $white;
-    }
-    &:hover {
-      box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.3);
-    }
-  } 
 }
 
-input[type='radio'] {
-  -webkit-appearance:none;
-}
+.button__group button {
+  width: 47%;
+  padding: 0.8em 0em;
+  font-weight: 500;
+  font-size: 1em;
+  border-radius: 0.7em;
+  transition: all 0.1s;
 
-input[type="radio"]:checked + label {
-  background: #EAC8C8;
-  color: $white;
-  font-weight: 600;
+  &[type="reset"]{
+    background: darken($light, 5);
+  }
+    
+  &[type="submit"]{
+    background: $dark;
+    color: $white;
+  }
+  
+  &:hover {
+    box-shadow: 0px 10px 12px -8px rgba(0,0,0,0.3);
+  }
 }
 
 .radio__group {
@@ -842,6 +819,16 @@ input[type="radio"]:checked + label {
   display: flex;
   flex-direction: column;
   gap: 0.8em 0em;
+}
+
+.radio__group input[type='radio'] {
+  -webkit-appearance: none;
+
+  &:checked + label {
+    background: #EAC8C8;
+    color: $white;
+    font-weight: 600;
+  }
 }
 
 .radio__item {
@@ -1114,7 +1101,6 @@ input[type="radio"]:checked + label {
 
   @media #{$lg}{
     margin-top: 1em;
-    //width: 75%;
   }
 }
 
@@ -1218,9 +1204,7 @@ input[type="radio"]:checked + label {
   font-size: 1.2em;
 }
 
-.product__button { //???????????????????????????
-  //background: rgba($dark, 0.9);
-  //color: $light;
+.product__button { 
   background: $lightMenu;
   color: $dark;
   font-weight: 700;

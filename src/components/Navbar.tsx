@@ -10,14 +10,14 @@ const Navbar: FC<{total: number}> = ({total}) => {
   return (
     <nav className="navbar">
       <div className="navbar--mobile">
-        <div className="navbar__left">
+        <div className="navbar__side--left navbar__side">
           <Link to="/" aria-label="Home"><IoHomeOutline className="icon" /></Link>
           <Link to="/shop" aria-label="Shop"><BsUiChecksGrid className="icon" /></Link>
         </div>
         <div className="navbar__center">
           <Link to="/cart" aria-label="Cart"><RiShoppingCartLine className="icon" /></Link>
         </div>
-        <div className="navbar__right">
+        <div className="navbar__side--right navbar__side">
           <Link to="/delivery" aria-label="Delivery"><BsBoxSeam className="icon" /></Link>
           <Link to="/contact" aria-label="Contact"><FiMessageCircle className="icon" /></Link>
         </div>
