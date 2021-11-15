@@ -6,9 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { store } from './state/index';
 import App from './App';
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './index.scss';
-//import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,4 +20,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//serviceWorkerRegistration.register();
+serviceWorkerRegistration.register();

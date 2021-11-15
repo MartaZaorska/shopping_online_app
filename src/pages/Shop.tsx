@@ -1,4 +1,5 @@
 import { FC, useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -52,7 +53,12 @@ const Shop: FC = () => {
 
   const changeHandler = (e: React.FormEvent<HTMLInputElement>): void => setSearch(e.currentTarget.value);
 
-  if(error) return <p>Error</p>
+  if(error) return (
+    <div className="error content">
+      <p>Something went wrong...</p>
+      <Link to="/">Go back to the home page</Link>
+    </div>
+  )
 
   if(loading) return <Loader />
 

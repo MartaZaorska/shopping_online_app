@@ -1345,6 +1345,14 @@ body {
     color: $grayPink;
   }
 
+  &__link {
+    font-size: 0.9em;
+    padding: 0.5em 0em;
+    text-transform: uppercase;
+    font-weight: 200;
+    text-decoration: underline;
+  }
+
   &__subtitle {
     font-weight: 700;
     font-size: 0.9em;
@@ -1604,6 +1612,27 @@ body {
     &:hover, &:disabled {
       color: $white;
       background: $dark;
+    }
+  }
+}
+
+//----------------------ERROR--------------------
+.error {
+  display: grid;
+  place-items: center;
+  padding-top: 3em;
+  p {
+    font-weight: 800;
+    color: $grayPink;
+    font-size: 1.3em;
+  }
+
+  a {
+    font-size: 0.9em;
+    font-weight: 300;
+    padding: 1em 0em;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
