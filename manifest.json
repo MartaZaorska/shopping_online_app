@@ -1,0 +1,36 @@
+{
+  "short_name": "Maquillage",
+  "name": "Maquillage - Internet drugstore",
+  "icons": [
+    {
+      "src": "./images/app-icon-32x32.png",
+      "sizes": "32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/app-icon-64x64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "./images/app-icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./images/app-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192 144x144",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/app-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512 256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#444444",
+  "background_color": "#444444"
+}

@@ -1,0 +1,39 @@
+{
+  "files": {
+    "static/js/0.a290f63b.chunk.js": "/shopping_online_app/static/js/0.a290f63b.chunk.js",
+    "static/js/0.a290f63b.chunk.js.map": "/shopping_online_app/static/js/0.a290f63b.chunk.js.map",
+    "main.css": "/shopping_online_app/static/css/main.f96225cc.chunk.css",
+    "main.js": "/shopping_online_app/static/js/main.381fa5d1.chunk.js",
+    "main.js.map": "/shopping_online_app/static/js/main.381fa5d1.chunk.js.map",
+    "runtime-main.js": "/shopping_online_app/static/js/runtime-main.23e361e1.js",
+    "runtime-main.js.map": "/shopping_online_app/static/js/runtime-main.23e361e1.js.map",
+    "static/js/3.3ab3f657.chunk.js": "/shopping_online_app/static/js/3.3ab3f657.chunk.js",
+    "static/js/3.3ab3f657.chunk.js.map": "/shopping_online_app/static/js/3.3ab3f657.chunk.js.map",
+    "static/js/4.927c3c40.chunk.js": "/shopping_online_app/static/js/4.927c3c40.chunk.js",
+    "static/js/4.927c3c40.chunk.js.map": "/shopping_online_app/static/js/4.927c3c40.chunk.js.map",
+    "static/js/5.f23dcea5.chunk.js": "/shopping_online_app/static/js/5.f23dcea5.chunk.js",
+    "static/js/5.f23dcea5.chunk.js.map": "/shopping_online_app/static/js/5.f23dcea5.chunk.js.map",
+    "static/js/6.088a8ac9.chunk.js": "/shopping_online_app/static/js/6.088a8ac9.chunk.js",
+    "static/js/6.088a8ac9.chunk.js.map": "/shopping_online_app/static/js/6.088a8ac9.chunk.js.map",
+    "static/js/7.efd1da8e.chunk.js": "/shopping_online_app/static/js/7.efd1da8e.chunk.js",
+    "static/js/7.efd1da8e.chunk.js.map": "/shopping_online_app/static/js/7.efd1da8e.chunk.js.map",
+    "static/js/8.069fbf3a.chunk.js": "/shopping_online_app/static/js/8.069fbf3a.chunk.js",
+    "static/js/8.069fbf3a.chunk.js.map": "/shopping_online_app/static/js/8.069fbf3a.chunk.js.map",
+    "static/js/9.a0ef51bd.chunk.js": "/shopping_online_app/static/js/9.a0ef51bd.chunk.js",
+    "static/js/9.a0ef51bd.chunk.js.map": "/shopping_online_app/static/js/9.a0ef51bd.chunk.js.map",
+    "static/js/10.b0b44ba9.chunk.js": "/shopping_online_app/static/js/10.b0b44ba9.chunk.js",
+    "static/js/10.b0b44ba9.chunk.js.map": "/shopping_online_app/static/js/10.b0b44ba9.chunk.js.map",
+    "index.html": "/shopping_online_app/index.html",
+    "service-worker.js": "/shopping_online_app/service-worker.js",
+    "service-worker.js.map": "/shopping_online_app/service-worker.js.map",
+    "static/css/main.f96225cc.chunk.css.map": "/shopping_online_app/static/css/main.f96225cc.chunk.css.map",
+    "static/js/3.3ab3f657.chunk.js.LICENSE.txt": "/shopping_online_app/static/js/3.3ab3f657.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/shopping_online_app/static/media/bg3.e759c94d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23e361e1.js",
+    "static/js/3.3ab3f657.chunk.js",
+    "static/css/main.f96225cc.chunk.css",
+    "static/js/main.381fa5d1.chunk.js"
+  ]
+}
